@@ -15,16 +15,16 @@ export class RxjsBasics {
   constructor(private http : HttpClient)
   {
     
-    this.http.get<any[]>("https://fakestoreapi.com/products").pipe(
-      map( products => 
-        products.map( p => ({
-          "discounted price" : p.price * 0.9,
-          "original price"  : p.price,
-          "discounted amount ": p.price *0.1
-        }))
+    this.http.get<any[]>("https://fakestoreapi.com/carts").pipe(
+      map(carts => 
+        carts.map(cart => 
+          cart.products.filter( (product : any) => 
+            (product.productId % 2 === 0)
+        ))
       )
     ).subscribe(console.log)
 
+    
   }
 
 }
