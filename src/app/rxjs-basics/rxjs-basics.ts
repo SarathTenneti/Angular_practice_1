@@ -17,7 +17,7 @@ export class RxjsBasics {
 
   constructor(private http : HttpClient)
   { 
-    this.searchText$ = this.searchTexts;
+    // this.searchText$ = this.searchTexts;
    this.searches(this.searchText$ , http)
   }
 
