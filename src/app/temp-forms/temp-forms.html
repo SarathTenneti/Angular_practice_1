@@ -1,5 +1,17 @@
-<form>
-    username :
-    <input type="text" class="form-control w-50 m-2" ngModel name="uname" #un="ngModel">
-    <button type="submit" (click)="show(un)">Click</button>
+<form #formRef="ngForm" (ngSubmit)="submitted(formRef)">
+
+    Username : 
+    <input type="text" name="username" ngModel #uname="ngModel">
+
+    <br/>
+    <br/>
+
+    Password :
+    <input type="password" name="password" ngModel #pass="ngModel">
+
+    <br/>
+    <br/>
+
+    <button type="submit">Submit</button>
+
 </form>

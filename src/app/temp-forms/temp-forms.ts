@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-temp-forms',
   imports: [FormsModule],
@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './temp-forms.css',
 })
 export class TempForms {
-  uname: string = '';
-
-  show(fc: any) {
-    console.log(fc);
+  
+  submitted(form: NgForm){
+    console.log('submitted');
+    console.log('form value:', form.value);
+    console.log('form valid:', form.valid);
   }
 }

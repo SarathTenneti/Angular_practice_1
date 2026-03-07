@@ -1,0 +1,14 @@
+<h1>Countdown Timer</h1>
+<form >
+    
+    Number :
+    <input type="number" name="num" placeholder="enter a positive number" [(ngModel)]="num">
+    <br/>
+    <br/>
+
+    <button type="button" (click)="startcount()" >Start</button>
+</form>
+
+<div> <h2> {{ num }}  </h2> 
+        <h1> {{message }}</h1>
+</div>
