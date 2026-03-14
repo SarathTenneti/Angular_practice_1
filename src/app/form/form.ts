@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { updateName , updateEmail , updateMobile} from '../../actions';
 
 @Component({
   selector: 'app-form',
@@ -11,21 +12,22 @@ export class Form {
   
   constructor( private store:Store<any>){}
   
-  updateName(input : HTMLInputElement){
+  editName(input : HTMLInputElement){
 
-    this.store.dispatch({type : 'name-edit' , payload : input.value});
+    this.store.dispatch(updateName({name:input.value}));
     input.value = "";
   }
-
-  updateEmail( input : HTMLInputElement)
+  
+  editEmail( input : HTMLInputElement)
   {
-    this.store.dispatch({type:'email-edit',payload : input.value});
+    this.store.dispatch(updateEmail({email : input.value}));// here both type and payload together is called action
     input.value= "";
   }
 
-  updateMobile( input : HTMLInputElement){
-    this.store.dispatch({type : 'mobile-edit' , payload : input.value});
-    input.value="";
+  editMobile(input: HTMLInputElement) {
+    const value = Number(input.value);
+    this.store.dispatch(updateMobile({ mobile: value }));
+    input.value = '';
   }
 
 }
